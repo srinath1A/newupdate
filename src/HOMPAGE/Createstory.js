@@ -4,18 +4,22 @@ import { useNavigate } from 'react-router-dom';
 
 function Createstory() {
     const navigate = useNavigate();
+    const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (event) => {
+    setSelectedImage(event.target.files[0]);
+  };
     const handleImageUpload = (event) =>{
-        const selectedFile = event.target.files[0];
         
         const formData = new FormData();
-        formData.append('image',selectedFile);
+        formData.append('image',selectedImage);
 
         axios.post(`http://localhost:5000/api/stories/createStory/ajay@gmail.com`,formData)
         .then(response => {
             if(response.data != null)
             {
                 
-                navigate("/Homepage");
+                navigate("/");
 
             }
         })
@@ -31,9 +35,9 @@ function Createstory() {
     <div>
       <h1>choose file</h1>
       <button>
-      <input type='file'></input>
+      <input type='file' accept="image/*" onChange={handleImageChange}></input>
       </button>
-      <button>Upload</button>
+      <button onClick={handleImageUpload}>Upload</button>
     </div>
   )
 }

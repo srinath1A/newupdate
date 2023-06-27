@@ -6,22 +6,71 @@ import axios from 'axios';
 
 
 function Homepage() {
-  const [imageUrl,setImageUrl] = useState('');
-  useEffect(() =>{
-    const getImage = async () =>{
-    try{
-      const response = await axios.get(`http://localhost:5000/api/stories/getStory/ajay@gmail.com`);
- 
-      const imageUrl = URL.createObjectURL(new Blob([response.data]));
-      setImageUrl(imageUrl);
-  }
-    catch (error){
-      console.error(error);
-    }
+  //window.onload = async () =>{
+    const [imageData, setImageData] = useState('');
+
+    useEffect(() => {
+      const fetchImage = async () => {
+        try {
+          const response = await fetch('http://localhost:5000/api/stories/getStory/ajay@gmail.com');
+          const blob = await response.blob();
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const base64data = reader.result;
+            
+            setImageData(base64data);
+          };
+          reader.readAsDataURL(blob);
+        } catch (error) {
+          console.error('Error fetching image:', error);
+        }
+      };
+  
+      fetchImage();
+    }, []);
+
+
+
+    const [imageDataList, setImageDataList] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/stories/getStories/ajay@gmail.com');
+        const imageList = await response.json();
+        console.log(imageList);
+
+        const promises = imageList.map(async (imageBytes,index) => {
+          const blob = new Blob([new Uint8Array(imageBytes)], { type: 'image/jpeg' });
+          const base64data = await convertBlobToBase64(blob);
+          return { id: index, data: base64data };
+        });
+
+        const imageDatas = await Promise.all(promises);
+        console.log(imageDatas)
+        setImageDataList(imageDatas);
+        
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  const convertBlobToBase64 = (blob) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result);
+      };
+      
+      reader.readAsDataURL(blob);
+      reader.onerror = reject;
+    });
   };
-  
-  getImage();},[]);
-  
+
+
   return (
   <>
   <nav>
@@ -37,10 +86,10 @@ function Homepage() {
                 <a href='http://localhost:3000/Live' className='Live'>Live</a>
             </li>
             <li>
-                <a href='http://localhost:3000/Createstory' target='_blank'><i class="fa-regular fa-message"></i></a>
-                <a href='#'><i class="fa-regular fa-circle-question"></i></a>
-                <a href='#'><i class="fa-regular fa-bell"></i></a>
-                <a href='#'><i class="fa-regular fa-circle-user"></i></a>
+                <a href='http://localhost:3000/Createstory' target='_blank'><i className="fa-regular fa-message"></i></a>
+                <a href='#'><i className="fa-regular fa-circle-question"></i></a>
+                <a href='#'><i className="fa-regular fa-bell"></i></a>
+                <a href='#'><i className="fa-regular fa-circle-user"></i></a>
             </li> 
           </ul>
       </div>
@@ -63,18 +112,25 @@ function Homepage() {
             </Link>
             </div>
           </div>
+         
           <div className='Youer_story'>
-            <img src={imageUrl} alt=''></img>
-            <div className='youer_story_upload'>
+          <img src={imageData} alt={""} />           
+           <div className='youer_story_upload'>
             <Link to="Youerstory" className='name'><span>Your Story</span></Link>
             </div>
           </div>
+          
+          
           <div className='Friend_story'>
-            <img src="" alt=''></img>
+          {imageDataList.map((imageData) => (
+          <img key={imageData.id} src={imageData.data} alt={`Image ${imageData.id}`} />
+          ))}
             <div className='Friend_story_upload'>
             <Link to="Friendstory" className='friend'><span>Luna Stoned</span></Link>
             </div>
           </div>
+          
+           
           <div className='Luna_story'>
             <img src="./images/paul.jpg" alt=''></img>
             <div className='Luna_story_upload'>
@@ -91,7 +147,7 @@ function Homepage() {
 
   </div>
     </>
-  )
-}
+  );
+};
 
 export default Homepage;
