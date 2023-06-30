@@ -1,19 +1,16 @@
+
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+   
 }
-.Home_page{
+ /* .Home_page{
     width:100%;
     height: 100%;
-}
-/* .Right_side_bar{
-    width:15vw;
-    height: 100vh;
-    border: 3px solid black;
-    float: right;
-    margin-top: -45%;
-} */
+    background-color:red;
+}  */
+
 .homepage_navbar{
     width: 100vw;
     height: 65px;
@@ -26,8 +23,26 @@
     box-shadow: 1px 2px 2px rgb(238, 238, 238);
     background-color:white;
 }
+.Logo{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 50px;
+}
+.Logo img{
+    position: relative;
+    width:50%;
+    height: 100px;
+    background:none;
+    background: transparent;
+    margin-top: 10px;
+    
+}
 .search_box{
-    margin-left: 20%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
     position: relative;
 
 }
@@ -37,7 +52,7 @@
     border: none;
     outline: none;
     border-radius: 5px;
-    padding-left: 20px;
+    padding-left: 10px;
     font-size:0.9em;
     background-color:rgb(239, 239, 239);
 }
@@ -61,14 +76,14 @@
     color:rgb(183, 176, 176);
     text-decoration: none; 
     font-size: 18px;
-    margin-right: 200px;
+    margin-right: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .homepage_navbar ul{
     flex: 2;
     display: flex;
     justify-content: space-evenly;
-    margin-left:10%;
+    margin-left:6%;
 }
 .homepage_navbar ul li{
     list-style: none;
@@ -77,7 +92,7 @@
     text-decoration: none;
     color:rgb(183, 176, 176);
     font-weight: 600;
-    margin-left: 50px;
+    margin-left: 20px;
     padding: 10px 15px;
     font-size: 20px;
 }
@@ -87,20 +102,23 @@
 /* Left-side_bar.............................................................................................. */
 .hompage_container {
     display: flex;
-    margin-top: 65px;
-    background:#f5f5f5; 
+    
+    background:#f5f5f5;
 
  }
 .Left_side_bar{
-    width:22vw;
+    position: fixed;
+    width:20vw;
     height: 100vh;
     overflow: hidden;
     overflow-y: scroll;
     padding: 20px 6px 5px 10px;
+    padding-top: 100px;
 
  }
  .Left_side_bar li:hover{
     background: #e3e3ee;
+    border-radius: 10px;
 
  }
  .Left_side_bar::-webkit-scrollbar{
@@ -116,8 +134,7 @@
  }
 .main_Leftside_bar{
     line-height: 40px;
-    /* box-shadow: 2px 2px  rgb(238, 238, 238); */
-    /* margin-top: -10px; */ 
+    box-shadow: 2px 2px  rgb(238, 238, 238);
 }
 .main_Leftside_bar h2{
     position: relative;
@@ -128,46 +145,29 @@
     padding-bottom: 15px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
-.main_Leftside_bar ul li{
-   
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
+
 .main_Leftside_bar ul li a{
     color:black;
-    font-weight: 300;
+    font-weight: 600;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     list-style: none;
     text-decoration: none;
-    margin-left: 20px;
-    /* background-color:rgb(239, 239, 239); */
+    margin-left: 55px;
     border-radius: 1px;
+  
 }
 .main_Leftside_bar ul{
     background-size: 100px 100px;
 }
-.Logo{
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-right: 40px;
-    margin-top: -20px;
+.Lbar{
+    margin-top: 20px;
+
 }
-.Logo img{
-    position: relative;
-    width:70%;
-    height: 70%;
-    background:none;
-    background: transparent;
-    margin-left: 20px;
-    margin-top: -13px;
-    
-}
+
 /* profile ...................................................................................*/
 .Lprofileimg{
     position: relative;
-    margin-left:35%;
-   
-    
+    margin-left:35%; 
 }
 .Lprofileimg img{
     width: 80px;
@@ -196,9 +196,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 70px;
-    margin-left: -36px;
+    margin-right: 80px;
+    margin-left: -46px;
     font-size:small;
+    margin-top: 20px;
 }
 .follwer {
     line-height: 15px;
@@ -215,12 +216,26 @@
 } 
 
 /* home page components.......................................................... */
+.modal-container{
+    position: fixed;
+    top:55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:50%;
+    height: 65%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0,0,0,10);
+    outline: none;
+    
+}
 .hompage_container .homepage_components{
     width:50%;
-    height: auto;
-    padding: 20px 20px 0 30px;
+    height:auto;
+    padding: 10px 20px 0 30px; 
     background: #f5f5f5;
-    margin-left: 5%;
+    margin-left: 20%;
+
 }
 .hompage_container .homepage_components::-webkit-scrollbar{
     width:0;
@@ -230,28 +245,23 @@
     height:260px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-top: 70px;
 }
 .hompage_container .homepage_components .top_box .create_story{
-    width: 130px;
-    height: 200px;
+    width: 150px;
+    height: 180px;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 0 auto; 
     box-shadow: 0 1px 8px rgba(0,0,0,0.2);
     border-radius: 10px;
     cursor: pointer;
     position: relative;
-  
-    
-
 }
 .hompage_container .homepage_components .top_box .create_story img{
     width:100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-   
-    
-
 }
 
 .hompage_container .homepage_components .top_box .create_story .story_upload{
@@ -271,7 +281,7 @@
     width:40px;
     height: 40px;
     font-size: 30px;
-    margin-left: 45px;
+    margin-left: 60px;
     color: rgb(14, 81, 162);
     bottom: 12px;
     object-fit: cover;
@@ -284,7 +294,16 @@
     object-position:center;
     cursor: pointer;
 }
-.story span{
+/* .story_upload button{
+   
+   width: 20px;
+   height: 20px;
+    background-color: transparent;
+    outline:none;
+
+    
+} */
+.story_upload span{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -301,8 +320,8 @@
 
 
 .hompage_container .homepage_components .top_box .Youer_story{
-    width: 130px;
-    height: 200px;
+    width: 150px;
+    height: 180px;
     overflow: hidden;
     /* margin: 0 auto; */
     margin-left: 21px;
@@ -310,6 +329,8 @@
     border-radius: 10px;
     cursor: pointer;
     position: relative;
+    outline: none;
+    border: none;
 }
 .hompage_container .homepage_components .top_box .Youer_story img{
     width:100%;
@@ -317,6 +338,8 @@
     object-fit: cover;
     object-position:center;
     filter:brightness(0.7);
+    
+    
 }
 .hompage_container .homepage_components .top_box .Youer_story .youer_story_upload{
     position: relative;
@@ -344,8 +367,8 @@
     color:dodgerblue;
 }
 .hompage_container .homepage_components .top_box .Friend_story{
-    width: 130px;
-    height: 200px;
+    width: 150px;
+    height: 180px;
     overflow: hidden;
     /* margin: 0 auto; */
     margin-left: 21px;
@@ -361,24 +384,22 @@
     object-position:center;
     filter: brightness(0.7);
     
+    
 }
 .hompage_container .homepage_components .top_box .Friend_story .Friend_story_upload{
     position: relative;
     bottom: 30px;
-    margin-left: 3px;
-   
-    
+    margin-left: 3px;  
 }
 .friend span{
     display: flex;
     align-items: center;
     justify-content:flex-start;
-    position: relative;
-    color:black;
+    position: relative;;
     font-weight: bold;
     font-size: 14px;
-    color:aliceblue;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    color:black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .friend{
     text-decoration: none;
@@ -388,8 +409,8 @@
     color:dodgerblue;
 }
 .hompage_container .homepage_components .top_box .Luna_story{
-    width: 130px;
-    height: 200px;
+    width: 150px;
+    height: 180px;
     overflow: hidden;
     /* margin: 0 auto; */
     margin-left: 21px;
@@ -430,7 +451,549 @@
 .luna span:hover{
     color:dodgerblue;
 }
+/* my post............................................................................... */
+.hompage_container .homepage_components .my_post{
+    width: 100%;
+    height: 240px;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgb(0,0,0,0.2) ;
+    margin: 10px 0;
+}
+.hompage_container .homepage_components .my_post .post_top{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+.hompage_container .homepage_components .my_post img{
+    width:75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
 
+}
+.hompage_container .homepage_components .my_post input{
+    width:80%;
+    padding: 10px;
+    margin-left: 20px;
+    border: 0;
+    outline: none;
+    background: #e9e9ed;
+    border-radius: 6px;
+    font-size: 13px;
+
+
+}
+.hompage_container .homepage_components .my_post input:hover{
+    background: #ffffff;
+    cursor: pointer;
+
+
+}
+.hompage_container .homepage_components .my_post .my_post_icons{
+   font-size: 16px;
+   display:flex;
+   justify-content:space-evenly;
+   color: #6f6f6f;
+   cursor:pointer;
+   /* margin-top: 5px; */
+   margin-left: 25px;
+}
+.my_post_icons i:hover{
+    color:rgba(239,71,99,255);
+}
+.hompage_container .homepage_components .my_post .post_btn button{
+    width: 16%;
+    height: 35px;
+    margin-left: 150px;
+    margin-top: 50px;
+    background:linear-gradient(to bottom right ,rgba(237,55,105,255),rgba(242,108,85,255),rgba(242,108,85,255));
+    border: none;
+    border-radius: 4px;
+}
+.hompage_container .homepage_components .my_post .post_btn button:active{
+    transform: scale(0.96);
+}
+.hompage_container .homepage_components .my_post .post_btn span{
+   color: #fff;
+   font-size: 12px;
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   /* letter-spacing:  0.1em; */
+   
+}
+.pop_box h1{
+    margin-top: 10px;
+    text-align:center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #c3c3c3;
+
+}
+.pop_up{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.pop_up_story input[type="file"]{
+    display: none;
+}
+.pop_up_story label{
+    color: #ffffff;
+    height: 250px;
+    width:200px;
+    background:linear-gradient(to bottom right ,rgba(237,55,105,255),rgba(242,108,85,255),rgba(242,108,85,255));
+    position: absolute;
+    left: 100px;
+    font: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgb(0,0,0,0.2) ;
+}
+.pop_up_text textarea{
+    height: 250px;
+    width:200px;
+    margin-right:100px;
+    font: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background:linear-gradient(to bottom right ,rgba(237,55,105,255),rgba(242,108,85,255),rgba(242,108,85,255));
+    color: white;
+    box-shadow: 0 1px 8px rgb(0,0,0,0.9);
+    padding: 20px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+.pop_up_btn button{
+    width: 20%;
+    height: 30px;
+    margin-left:40%;
+    margin-top: 40px;
+    background-color:rgb(21, 137, 239);
+    border: none;
+    border-radius: 4px;
+    color: white;
+
+}
+/* friend post................................................... */
+.timeline{
+    
+
+}
+.hompage_container .homepage_components .friends_post{
+    margin: 10px 0px;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.3); 
+   
+}
+.hompage_container .homepage_components  .friends_post .friends_post_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.hompage_container .homepage_components .friends_post_top .img_and_name{
+    display: flex;
+    align-items: center;
+}
+.hompage_container .homepage_components .friends_post_top .img_and_name img{
+    width:45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit:cover;
+    object-position: center;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.hompage_container .homepage_components .friends_post_top .img_and_name .friends_name {
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.hompage_container .homepage_components .friends_post_top .img_and_name .friends_name :hover{
+    text-decoration: underline;
+}
+.hompage_container .homepage_components .friends_post_top .img_and_name .friends_name .time{
+    font-size: 14px;
+    color: #919191;
+    margin: 3px 0;
+}
+.hompage_container .homepage_components .friends_post_top .img_and_name .friends_name .time i{
+    font-size: 10px;
+    margin-left: 5px;
+}
+.hompage_container .homepage_components .friends_post .friends_post_top .menu{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+
+}
+.hompage_container .homepage_components .friends_post .friends_post_top .menu:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+.hompage_container .homepage_components .friends_post .friends_post_top .menu i{
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 18px;
+}
+.hompage_container .homepage_components .friends_post img{
+    width:100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    border-radius:5px;
+}
+/* second................................friend */
+.hompage_container .homepage_components .friends1_post{
+    margin: 10px 0px;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.3);
+}
+.hompage_container .homepage_components  .friends1_post .friends1_post_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.hompage_container .homepage_components .friends1_post_top .img_and_name1{
+    display: flex;
+    align-items: center;
+}
+.hompage_container .homepage_components .friends1_post_top .img_and_name1 img{
+    width:45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit:cover;
+    object-position: center;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.hompage_container .homepage_components .friends1_post_top .img_and_name1 .friends_name1 {
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.hompage_container .homepage_components .friends1_post_top .img_and_name1 .friends1_name1 :hover{
+    text-decoration: underline;
+}
+.hompage_container .homepage_components .friends1_post_top .img_and_name1 .friends1_name1 .time1{
+    font-size: 14px;
+    color: #919191;
+    margin: 3px 0;
+}
+.hompage_container .homepage_components .friends1_post_top .img_and_name1 .friends_name1 .time1 i{
+    font-size: 10px;
+    margin-left: 5px;
+}
+.hompage_container .homepage_components .friends1_post .friends1_post_top .menu1{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+
+}
+.hompage_container .homepage_components .friends1_post .friends1_post_top .menu1:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+.hompage_container .homepage_components .friends1_post .friends1_post_top .menu1 i{
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 18px;
+}
+.hompage_container .homepage_components .friends1_post img{
+    width:100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    border-radius:5px;
+}
+/* 3rd................................friend................................. */
+
+.hompage_container .homepage_components .friends2_post{
+    margin: 10px 0px;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.3);
+}
+.hompage_container .homepage_components  .friends2_post .friends2_post_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.hompage_container .homepage_components .friends2_post_top .img_and_name2{
+    display: flex;
+    align-items: center;
+}
+.hompage_container .homepage_components .friends2_post_top .img_and_name2 img{
+    width:45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit:cover;
+    object-position: center;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.hompage_container .homepage_components .friends2_post_top .img_and_name2 .friends_name2 {
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.hompage_container .homepage_components .friends2_post_top .img_and_name2 .friends_name2 :hover{
+    text-decoration: underline;
+}
+.hompage_container .homepage_components .friends2_post_top .img_and_name2 .friends_name2 .time2{
+    font-size: 14px;
+    color: #919191;
+    margin: 3px 0;
+}
+.hompage_container .homepage_components .friends2_post_top .img_and_name2 .friends_name2 .time2 i{
+    font-size: 10px;
+    margin-left: 5px;
+}
+.hompage_container .homepage_components .friends2_post .friends2_post_top .menu2{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+
+}
+.hompage_container .homepage_components .friends2_post .friends2_post_top .menu2:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+.hompage_container .homepage_components .friends2_post .friends2_post_top .menu2 i{
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 18px;
+}
+.hompage_container .homepage_components .friends2_post img{
+    width:100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    border-radius:5px;
+}
+/* 4th..............................friend ..............................*/
+
+.hompage_container .homepage_components .friends3_post{
+    margin: 10px 0px;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.3);
+}
+.hompage_container .homepage_components  .friends3_post .friends3_post_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.hompage_container .homepage_components .friends3_post_top .img_and_name3{
+    display: flex;
+    align-items: center;
+}
+.hompage_container .homepage_components .friends3_post_top .img_and_name3 img{
+    width:45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit:cover;
+    object-position: center;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.hompage_container .homepage_components .friends3_post_top .img_and_name3 .friends_name3 {
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.hompage_container .homepage_components .friends3_post_top .img_and_name3 .friends_name3 :hover{
+    text-decoration: underline;
+}
+.hompage_container .homepage_components .friends3_post_top .img_and_name3 .friends_name3 .time3{
+    font-size: 14px;
+    color: #919191;
+    margin: 3px 0;
+}
+.hompage_container .homepage_components .friends3_post_top .img_and_name3 .friends_name3 .time3 i{
+    font-size: 10px;
+    margin-left: 5px;
+}
+.hompage_container .homepage_components .friends3_post .friends3_post_top .menu3{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+
+}
+.hompage_container .homepage_components .friends3_post .friends3_post_top .menu3:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+.hompage_container .homepage_components .friends3_post .friends3_post_top .menu3 i{
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 18px;
+}
+.hompage_container .homepage_components .friends3_post img{
+    width:100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    border-radius:5px;
+}
+/*.........  right sid bar............slide................................image */
+.Right_side_bar{
+    padding-top: 80px;
+   /* position: relative;
+   overflow: hidden;
+   overflow-y: scroll;   */
+} 
+.body{
+    /* width:100%;
+    height: 100%;
+    background: #fff; */
+    object-fit: cover;
+    object-position: center;
+
+
+}
+
+.slide_image{
+    width:300px;
+    height: 200px;
+    background: url(./images/nails.jpg);
+    animation: slide 10s infinite;
+    border-radius: 10px;
+   
+}
+@keyframes slide{
+    25%{
+        background: url(./images/pic1.jpg);
+        
+
+    }
+    50%{
+        background: url(./images/pic2.jpg);
+        
+        
+    }
+    75%{
+        background: url(./images/pic3.jpg);
+        
+    }
+    100%{
+        background: url(./images/pic4.jpg);
+        
+    }
+}
+/* slide2..................................................... */
+.slide_image1{
+    width:300px;
+    height: 200px;
+    background: url(./images/nails.jpg);
+    animation: slide 10s infinite;
+    border-radius: 10px;
+    margin-top: 10px;
+   
+}
+@keyframes slide{
+    25%{
+        background: url(./images/pic1.jpg);
+        
+
+    }
+    50%{
+        background: url(./images/pic2.jpg);
+        
+        
+    }
+    75%{
+        background: url(./images/pic3.jpg);
+        
+    }
+    100%{
+        background: url(./images/pic4.jpg);
+        
+    }
+}
+/* slide3......................................................................... */
+.slide_image2{
+    width:300px;
+    height: 200px;
+    background: url(./images/nails.jpg);
+    animation: slide 10s infinite;
+    border-radius: 10px;
+    margin-top: 10px;
+   
+}
+@keyframes slide{
+    25%{
+        background: url(./images/pic1.jpg);
+        
+
+    }
+    50%{
+        background: url(./images/pic2.jpg);
+        
+        
+    }
+    75%{
+        background: url(./images/pic3.jpg);
+        
+    }
+    100%{
+        background: url(./images/pic4.jpg);
+        
+    }
+}
+/* slide4......................................... */
+.slide_image3{
+    width:300px;
+    height: 200px;
+    background: url(./images/nails.jpg);
+    animation: slide 10s infinite;
+    border-radius: 10px;
+    margin-top: 10px;
+   
+}
+@keyframes slide{
+    25%{
+        background: url(./images/pic1.jpg);
+        
+
+    }
+    50%{
+        background: url(./images/pic2.jpg);
+        
+        
+    }
+    75%{
+        background: url(./images/pic3.jpg);
+        
+    }
+    100%{
+        background: url(./images/pic4.jpg);
+        
+    }
+}
 
 
 

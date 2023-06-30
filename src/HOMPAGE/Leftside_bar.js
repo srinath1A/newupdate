@@ -7,10 +7,7 @@ function Leftside_bar() {
   return (
     <>
     <div className="main_Leftside_bar">
-      <div className="Logo">
-      <img src="./images/Logo.png" alt=""></img>
-        <h2>STYLISTA</h2>
-      </div>
+      
       <div className="Lprofileimg">
         <img src="./images/makeup.jpg" alt=""></img>
         <div className="profile_name">
