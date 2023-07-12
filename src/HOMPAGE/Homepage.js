@@ -3,7 +3,7 @@
   import Leftside_bar from './Leftside_bar';
   import { Link} from 'react-router-dom';
   import axios from 'axios';
-  import Modal from './Modal';
+  
 import Rightside_bar from './Rightside_bar';
 
 
@@ -12,9 +12,7 @@ import Rightside_bar from './Rightside_bar';
     const [selectedImage, setSelectedImage] = useState(false);
     const [selectedText, setSelectedText] = useState(null);
 
-    const [fileSelected, setFileSelected] = useState(false);
-    const [textEntered, setTextEntered] = useState(false);
-    const [selectedFileName, setSelectedFileName] = useState('');
+   
 
     const [imageError, setImageError] = useState(false);
     const [textError, settextError] = useState(false);
@@ -25,16 +23,11 @@ import Rightside_bar from './Rightside_bar';
       fileInputRef.current.click();
     };
 
-
-    const handleImageChange = (event) => {
-      setSelectedImage(event.target.files[0]);
-      setFileSelected(true);
-      setSelectedFileName(event.target.files[0].name);
-    };
+   
 
     const onChange = (event) => {
       setSelectedText(event.target.value);
-      setTextEntered(event.target.value !== '');
+      // setTextEntered(event.target.value !== '');
     };
 
     const handleImageUpload = (event) =>{
@@ -122,13 +115,9 @@ import Rightside_bar from './Rightside_bar';
       const handleIconClick = () => {
         setIsOpen(true);
       };
-    
-      const handleClose = () => {
-        setFileSelected(false);
-        setTextEntered(false);
-        setSelectedFileName('');
-        setIsOpen(false);
-      };
+      const handleImageChange = (event) => {
+        setSelectedImage(event.target.files[0]);
+      }
 
 
     return (
@@ -170,37 +159,13 @@ import Rightside_bar from './Rightside_bar';
           <div className='create_story'>
             <img src="./images/makeup.jpg" alt=''></img>
             <div className='story_upload'>
-           <i class="fa-solid fa-circle-plus" onClick={handleIconClick}></i>
-           {isOpen &&(
-            <Modal onClose={handleClose}>
-              <div className='pop_box'>
-              <h1>CREATE STORY</h1>
-               <div className='pop_up'>
-                <div className='pop_up_story'>
-                  <input type='file'  id="file"accept="image/*" onChange={handleImageChange}></input>
-                  <label for="file">AddStory</label>
-                </div>
-                  <div className='pop_up_text'>
-                    <textarea  rows="10"placeholder='Write Something' onChange={onChange}></textarea>
-                  </div>             
-              </div>
-              {selectedFileName && <p> {selectedFileName}</p>}
-              <div className='pop_up_btn'>
-              {(fileSelected && !textEntered) && <button onClick={handleImageUpload} >Upload Image</button>}
-              {(textEntered && !fileSelected) && <button onClick={handleImageUpload} >Share Texts</button>}
-              {(textEntered && fileSelected) && <button onClick={handleImageUpload} >Upload</button>}
-              </div>
-              </div>
-              
-            
-            </Modal>
-            
-           )}
-            <span>Create Story</span>
-            
+              <Link to="Create" className='' >
+           <i class="fa-solid fa-circle-plus"></i>
+           </Link>
+           <span>Create Story</span>
             </div>
           </div>
-          
+      
           <div className='Youer_story'>
           {<img src={`data:image/jpeg;base64,${userStory.image}`}   alt={""} /> }          
            <div className='youer_story_upload'>
@@ -232,6 +197,9 @@ import Rightside_bar from './Rightside_bar';
             </div>
           </div>
         </div>
+
+
+
         <div className='my_post'>
               <h3>Create Post</h3>
             <div className='post_top'>
@@ -286,7 +254,7 @@ import Rightside_bar from './Rightside_bar';
           </div>
           
         </div> 
-        ))};
+        ))}
         
        
         {/* second friend...................................................................... */}
