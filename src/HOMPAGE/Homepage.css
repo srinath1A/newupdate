@@ -28,12 +28,12 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 110px;
 }
 .Logo img{
     position: relative;
-    width:50%;
-    height: 100px;
+    width:60%;
+    height: 80px;
     background:none;
     background: transparent;
     margin-top: 10px;
@@ -62,8 +62,8 @@
     border: none;
     outline: none;
     background: transparent;
-    top: 8px;
-    right: -230px;
+    top: 2px;
+    right: -200px;
     cursor: pointer;
     color:rgb(183, 176, 176);
     
@@ -76,7 +76,7 @@
     color:rgb(183, 176, 176);
     text-decoration: none; 
     font-size: 18px;
-    margin-right: 50px;
+    margin-right: 300px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .homepage_navbar ul{
@@ -217,13 +217,12 @@
 
 /* home page components.......................................................... */
 .modal-container{
-    position: fixed;
-    top:5%;
+    position: relative;
     left: 25%;
     top: 10%;
     pointer-events: none;
     width:70%;
-    height: 85%;
+    height: 80%;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 1px 8px rgba(0,0,0,0.2);
@@ -241,27 +240,79 @@
     width:0;
 }
 .hompage_container .homepage_components .top_box{
-    width:30%;
-    height:260px;
+    display: flex;
+
+    width:100%;
+    height:190px;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding-top: 70px;
+    margin-top: 72px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    
+}
+.hompage_container .homepage_components .top_box #arrow_left{
+   
+    font-size: 30px;
+    position: absolute;
+    background-color:rgb(225, 225, 225);
+    border-radius: 50%;
+    margin-left: 20px;
+    padding-left: 3px;
+    padding-top: 3px;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position:cover; 
+    margin-top: 77px;
+    color: #aba9a9;
+}
+.hompage_container .homepage_components .top_box #arrow_left:active{
+    transform: scale(0.96);
+}
+.hompage_container .homepage_components .top_box #arrow_left:hover{
+    color: rgb(47, 103, 198);
+}
+.hompage_container .homepage_components .top_box #arrow_right{
+    font-size: 30px;
+    margin-left: 263%;
+    background-color:rgb(225, 225, 225);
+    border-radius: 50%;
+    padding: 10px;
+    padding-top: 3px;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position:cover; 
+    margin-top: 77px;
+    color: #aba9a9;
+    
+    
+}
+.hompage_container .homepage_components .top_box #arrow_right:active{
+    transform: scale(0.96);
+}
+.hompage_container .homepage_components .top_box #arrow_right:hover{
+    color: rgb(47, 103, 198);
 }
 .hompage_container .homepage_components .top_box .create_story{
-    width: 150px;
+    width: 130px;
     height: 180px;
+    margin-left: 15px;
     overflow: hidden;
-    margin: 0 auto; 
     box-shadow: 0 1px 8px rgba(0,0,0,0.2);
     border-radius: 10px;
     cursor: pointer;
-    position: relative;
+    margin-top: 5px;
 }
 .hompage_container .homepage_components .top_box .create_story img{
     width:100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+   
 }
 
 .hompage_container .homepage_components .top_box .create_story .story_upload{
@@ -280,7 +331,7 @@
     width:40px;
     height: 40px;
     font-size: 30px;
-    margin-left: 52px;
+    margin-left: 45px;
     color: rgb(14, 81, 162);
     bottom: 12px;
     object-fit: cover;

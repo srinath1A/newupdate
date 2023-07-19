@@ -1,6 +1,14 @@
 import React, { useEffect, useState , useRef } from 'react'
 import "./create.css"
 import Modal from './Modal';
+import Circle from '@uiw/react-color-circle';
+// import { Omit } from '@types/lodash';
+import { HsvaColor, ColorResult } from '@uiw/color-convert';
+import { SwatchProps } from '@uiw/react-color-swatch';
+// interface CircleProps extends Omit<SwatchProps, 'color' | 'onChange'> {
+//   color?: string | HsvaColor;
+//   onChange?: (color: ColorResult) => void;
+// }
 
 function Create() {
 
@@ -14,6 +22,8 @@ function Create() {
     const [isImageOpen, setIsImageOpen] = useState(false);
 
     const [isTextOpen, setIsTextOpen] = useState(false);
+    const [hex, setHex] = useState('#F44E3B');
+
 
     const handleClose = () => {
         setFileSelected(false);
@@ -22,8 +32,6 @@ function Create() {
         setIsTextOpen(false);
         setIsImageOpen(false);
       };
-
-   
       const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -63,32 +71,33 @@ function Create() {
        </div>  
        </div>      
 
-{/* {isImageOpen &&(
+{isImageOpen &&(
 <Modal onClose={handleClose}> 
 <div className='black'>
 
 </div>
-<div className='pop_up_btn'> 
+{/* <div className='pop_up_btn'> 
    {(fileSelected && !textEntered) && <button onClick={handleImageUpload} >Upload Image</button>}
   {(textEntered && !fileSelected) && <button onClick={handleImageUpload} >Share Texts</button>}
 {(textEntered && fileSelected) && <button onClick={handleImageUpload} >Upload</button>}
-  </div>
+  </div> */}
 
-</Modal>) } */}
+</Modal>) } 
+
 {modalIsOpen&&(
-<Modal onRequestClose={closeModal} contentLabel="Selected Image">
-<h4 className='preview'>Preview</h4>
+<Modal 
+className="Modal"
+overlayClassName="overlay"
+  onRequestClose={closeModal} contentLabel="Selected Image">
+    <span><h4>Preview</h4></span>
         {selectedImage && (
-          <div className='image_display'>
            
           <div className='popup_black'>
         <img src={selectedImage} alt="Selected"/>
         </div>
-        </div>
         )}
       </Modal>
-)};
-
+)}; 
 
 
 
@@ -96,17 +105,16 @@ function Create() {
 <Modal onClose={handleClose}> 
  {selectedImage && (
         <div className="pop-in">
-          {/* Image displayed inside the pop-in */}
+        
           <img src={selectedImage} alt="Selected Image" />
         </div>
       )}
 <div className='pop_up_btn'> 
-  {/* {(fileSelected && !textEntered) && <button onClick={handleImageUpload} >Upload Image</button>}
-  {(textEntered && !fileSelected) && <button onClick={handleImageUpload} >Share Texts</button>}
-  {(textEntered && fileSelected) && <button onClick={handleImageUpload} >Upload</button>} */}
+  
   </div>
 
 </Modal>) }
+
 
 
 
@@ -137,6 +145,18 @@ function Create() {
     <div className='wrapper'>
       <div className='text_area'>
         <textarea placeholder='Start typing' required></textarea>
+        <div className='color'>
+          <h4>Backgrounds</h4>
+        <Circle
+         className='colors'
+      colors={[ '#F44E3B', '#FE9200', '#FCDC00', '#DBDF00',"red" ,"blue","orange","yellow","#e9e9e9","green","black","purple","aqua","blueviolet"]}
+      
+      color={hex}
+      onChange={(color) => {
+        setHex(color.hex);
+      }}
+    />
+    </div>
       </div>
       <div className='pop_up_btn1'>
       <button>Discard</button>
